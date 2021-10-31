@@ -147,7 +147,7 @@ public class OrderRepository {
     }
 
     public List<Order> findAllWithMemberDelivery(int offset, int limit) {
-        //모든 컬럼을 가져온다
+        // @NtoOne fetch join
         return em.createQuery("select o from Order o" +
                 " join fetch o.member m" +
                 " join fetch o.delivery d", Order.class)
